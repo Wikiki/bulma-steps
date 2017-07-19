@@ -4,6 +4,7 @@ Bulma's extension to manage steps
 
 Preview
 ---
+![Steps extension](https://img15.hostingpics.net/pics/827766ScreenShot20170719at121410.png)
 
 Usage
 ---
