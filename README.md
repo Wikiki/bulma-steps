@@ -13,7 +13,7 @@ Usage
   <li class="step-item">
     <a href="#steps"></a>
   </li>
-  <li class="step-item active">
+  <li class="step-item is-active">
     <a href="#steps"></a>
   </li>
   <li class="step-item">
@@ -31,7 +31,7 @@ Usage
   <li class="step-item">
     <a href="#steps">Step 2</a>
   </li>
-  <li class="step-item active">
+  <li class="step-item is-active">
     <a href="#steps">Step 3</a>
   </li>
   <li class="step-item">

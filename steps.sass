@@ -44,12 +44,12 @@
         transform: translateX(-50%)
         width: 1.2rem
         z-index: 1
-    &.active
+    &.is-active
       a
         &::before
           background: #fff
           border: .2rem solid $primary
-    &.active ~ .step-item::before
+    &.is-active ~ .step-item::before
         background: #f0f1f4
-    &.active ~ .step-item a::before
+    &.is-active ~ .step-item a::before
         background: #e7e9ed
