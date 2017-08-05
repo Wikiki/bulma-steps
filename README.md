@@ -8,7 +8,7 @@ Preview
 
 Usage
 ---
-```
+```html
 <ul class="step">
   <li class="step-item">
     <a href="#steps"></a>
