@@ -55,3 +55,8 @@ Integration
 At the end of the `bulma.sass` file, add this line: `@import "sass/extensions/_all"`
 
 Now, you can just build the bulma project with `npm run build`, and the output will be available in the `css folder`.
+
+## Related Project
+
+There is another steps extensions for Bulma available from
+[aramvisser](https://github.com/aramvisser/bulma-steps). It even has the same name!
