@@ -4,38 +4,47 @@ Bulma's extension to manage steps
 
 Preview
 ---
-![Steps extension](https://img15.hostingpics.net/pics/827766ScreenShot20170719at121410.png)
+![Steps extension](https://img4.hostingpics.net/pics/787860ScreenShot20170816at123716.png)
 
 Usage
 ---
 ```html
-<ul class="step">
-  <li class="step-item">
-    <a href="#steps"></a>
+<ul class="steps">
+  <li class="step-item is-completed is-success">
+    <div class="step-marker">
+      <span class="icon">
+        <i class="fa fa-check"></i>
+      </span>
+    </div>
+    <div class="step-content">
+      <p class="step-title">Step 1</p>
+      <p>This is the first step, which means you start here.</p>
+    </div>
   </li>
   <li class="step-item is-active">
-    <a href="#steps"></a>
+    <div class="step-marker">
+      <span class="icon">
+        <i class="fa fa-star"></i>
+      </span>
+    </div>
+    <div class="step-content">
+      <p class="step-title">Step 2</p>
+      <p>This is the second step. Once you complete the first step, you will end up here.</p>
+    </div>
   </li>
   <li class="step-item">
-    <a href="#steps"></a>
+    <div class="step-marker">
+    <div class="step-content">
+      <p class="step-title">Step 3</p>
+      <p>This is the third step. This is halfway between the start and the end.</p>
+    </div>
   </li>
   <li class="step-item">
-    <a href="#steps"></a>
-  </li>
-</ul>
-
-<ul class="step">
-  <li class="step-item">
-    <a href="#steps">Step 1</a>
-  </li>
-  <li class="step-item">
-    <a href="#steps">Step 2</a>
-  </li>
-  <li class="step-item is-active">
-    <a href="#steps">Step 3</a>
-  </li>
-  <li class="step-item">
-    <a href="#steps">Step 4</a>
+    <div class="step-marker">
+    <div class="step-content">
+      <p class="step-title">Step 4</p>
+      <p>And finally the last step. You have successfully completed all 5 steps.</p>
+    </div>
   </li>
 </ul>
 ```
