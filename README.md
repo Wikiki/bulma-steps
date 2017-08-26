@@ -14,3 +14,4 @@ You can find the Documentation and a demo [here](https://wikiki.github.io/bulma-
 
 There is another steps extensions for Bulma available from
 [aramvisser](https://github.com/aramvisser/bulma-steps). It even has the same name!
+Thanks to him for the ```marker``` idea and for the sizes mixin declaration (which is smart).
