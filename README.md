@@ -13,5 +13,6 @@ You can find the Documentation and a demo [here](https://wikiki.github.io/bulma-
 ## Related Project
 
 There is another steps extensions for Bulma available from
-[aramvisser](https://github.com/aramvisser/bulma-steps). It even has the same name!
+[aramvisser](https://github.com/aramvisser/bulma-steps).
+
 Thanks to him for the ```marker``` idea and for the sizes mixin declaration (which is smart).
