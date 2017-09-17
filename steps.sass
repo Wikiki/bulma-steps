@@ -37,8 +37,7 @@ $steps-divider-height: .2em !default
 .steps
   +block
   display: flex
-  display: -ms-flexbox
-  display: -webkit-flex
+  flex-wrap: wrap
 
   .step-item
     margin-top: 0
@@ -105,6 +104,18 @@ $steps-divider-height: .2em !default
           .step-marker
             color: $color-invert
             background-color: $color
+
+  .steps-actions
+    display: flex
+    align-items: stretch
+    flex-basis: 100%
+    .steps-action
+      display: flex
+      flex-basis: 0
+      flex-grow: 1
+      margin: .5rem
+      justify-content: center
+      align-items: center
 
   +steps-size($size-normal)
   &.is-small
