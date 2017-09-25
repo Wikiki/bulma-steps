@@ -24,7 +24,7 @@ $steps-divider-height: .2em !default
       .icon
         *
           font-size: $size
-    .step-content
+    .step-details
       margin-top: $size * 2
       margin-left: .5em
       margin-right: .5em
@@ -55,19 +55,22 @@ $steps-divider-height: .2em !default
         position: absolute
 
     &::before
-      background-color: $steps-default-color
+      background: linear-gradient(to left, $steps-default-color 50%, $steps-active-color 50%)
+      background-size: 200% 100%
+      background-position: right bottom
+      transition: all 2s ease
       .step-marker
         color: $white
     &.is-active
       &::before
-        background-color: $steps-active-color
+        background-position: left bottom
       .step-marker
         background-color: $white
         border-color: $steps-active-color
         color: $steps-active-color
     &.is-completed
       &::before
-        background-color: $steps-completed-color
+        background-position: left bottom
       .step-marker
         color: $white
         background-color: $steps-completed-color
@@ -82,8 +85,10 @@ $steps-divider-height: .2em !default
       color: $white
       border: $steps-marker-default-border
       z-index: 1
+      transition: all 0s ease
+      transition-delay: 1.5s
 
-    .step-content
+    .step-details
       text-align: center
 
     // Override marker color per step
@@ -91,19 +96,32 @@ $steps-divider-height: .2em !default
       $color: nth($pair, 1)
       $color-invert: nth($pair, 2)
       &.is-#{$name}
+        &::before
+          background: linear-gradient(to left, $steps-default-color 50%, $color 50%)
+          background-size: 200% 100%
+          background-position: right bottom
         &.is-active
           &::before
-            background-color: $color
+            background-position: left bottom
           .step-marker
             background-color: $white
             border-color: $color
             color: $color
         &.is-completed
           &::before
-            background-color: $color
+            background-position: left bottom
           .step-marker
             color: $color-invert
             background-color: $color
+
+  .steps-content
+    align-items: stretch
+    flex-basis: 100%
+    margin: 2rem 0
+    .step-content
+      display: none
+      &.is-active
+        display: block
 
   .steps-actions
     display: flex
