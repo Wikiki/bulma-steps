@@ -2,6 +2,8 @@
 Bulma's extension to manage steps
 (find all my bulma's extensions [here](https://wikiki.github.io/bulma-extensions/overview))
 
+[![Build Status](https://travis-ci.org/Wikiki/bulma-steps.svg?branch=master)](https://travis-ci.org/Wikiki/bulma-steps)
+
 Preview
 ---
 <img src="./bulma-steps-example.png">
