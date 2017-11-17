@@ -12,7 +12,7 @@ Preview
 
 Documentation & Demo
 ---
-You can find the Documentation and a demo [here](https://wikiki.github.io/bulma-extensions/steps)
+You can find the Documentation and a demo [here](https://wikiki.github.io/components/steps/)
 
 ## Related Project
 
