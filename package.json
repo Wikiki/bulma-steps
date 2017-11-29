@@ -1,8 +1,8 @@
 {
   "name": "bulma-steps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Display steps for a process (like sign-up, or order, form), in different colors, sizes, and states ",
-  "main": "index.js",
+  "main": "steps.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +23,17 @@
   "bugs": {
     "url": "https://github.com/Wikiki/bulma-steps/issues"
   },
-  "homepage": "https://github.com/Wikiki/bulma-steps#readme"
+  "homepage": "https://github.com/Wikiki/bulma-steps#readme",
+  "devDependencies": {
+    "bulma": "^0.6.1"
+  },
+  "files": [
+    "steps.sass",
+    "steps.css",
+    "steps.min.css",
+    "steps.js",
+    "steps.min.js",
+    "LICENSE",
+    "README.md"
+  ]
 }
