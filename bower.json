@@ -1,0 +1,25 @@
+{
+  "name": "bulma-steps",
+  "description": "Display steps for a process (like sign-up, or order, form), in different colors, sizes, and states",
+  "main": "steps.sass",
+  "authors": [
+    "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "bulma.io",
+    "extensions",
+    "steps",
+    "wizard"
+  ],
+  "homepage": "https://github.com/Wikiki/bulma-steps",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
