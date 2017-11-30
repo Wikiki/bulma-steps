@@ -1,6 +1,6 @@
 # bulma-steps
 Bulma's extension to manage steps
-(find all my bulma's extensions [here](https://wikiki.github.io/bulma-extensions/overview))
+(find all my bulma's extensions [here](https://wikiki.github.io/))
 
 [![npm](https://img.shields.io/npm/v/bulma-steps.svg)](https://www.npmjs.com/package/bulma-steps)
 [![npm](https://img.shields.io/npm/dm/bulma-steps.svg)](https://www.npmjs.com/package/bulma-steps)
