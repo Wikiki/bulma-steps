@@ -193,6 +193,9 @@ class StepsWizard {
   }
 }
 
-document.addEventListener( 'DOMContentLoaded', function () {
-  var stepsWizard = new StepsWizard( document.getElementById( 'stepsDemo' ) );
+document.addEventListener('DOMContentLoaded', function () {
+  var stepsContainers = document.querySelectorAll('.steps');
+  [].forEach.call(stepsContainers, (stepsContainer) => {
+    var stepsWizard = new StepsWizard(stepsContainer);
+  });
 } );
