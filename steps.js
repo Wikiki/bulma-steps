@@ -40,14 +40,18 @@ class StepsWizard {
     if ( this.previous_btn != null ) {
       this.previous_btn.addEventListener( 'click', function( e ) {
         e.preventDefault();
-        _this.previous_step();
+        if (!e.target.getAttribute('disabled')) {
+          _this.previous_step();
+        }
       } );
     }
 
     if ( this.next_btn != null ) {
       this.next_btn.addEventListener( 'click', function( e ) {
         e.preventDefault();
-        _this.next_step();
+        if (!e.target.getAttribute('disabled')) {
+          _this.next_step();
+        }
       } );
     }
   }
