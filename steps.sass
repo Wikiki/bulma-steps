@@ -58,7 +58,6 @@ $steps-divider-height: .2em !default
       background: linear-gradient(to left, $steps-default-color 50%, $steps-active-color 50%)
       background-size: 200% 100%
       background-position: right bottom
-      transition: all 2s ease
       .step-marker
         color: $white
     &.is-active
@@ -85,9 +84,6 @@ $steps-divider-height: .2em !default
       color: $white
       border: $steps-marker-default-border
       z-index: 1
-      &.is-animated
-        transition: all 0s ease
-        transition-delay: 1.5s
 
     .step-details
       text-align: center
@@ -135,6 +131,14 @@ $steps-divider-height: .2em !default
       margin: .5rem
       justify-content: center
       align-items: center
+
+  &.is-animated
+    .step-item
+      &::before
+        transition: all 2s ease
+      .step-marker
+        transition: all 0s ease
+        transition-delay: 1.5s
 
   +steps-size($size-normal)
   &.is-small
