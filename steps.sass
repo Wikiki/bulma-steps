@@ -85,8 +85,9 @@ $steps-divider-height: .2em !default
       color: $white
       border: $steps-marker-default-border
       z-index: 1
-      transition: all 0s ease
-      transition-delay: 1.5s
+      &.is-animated
+        transition: all 0s ease
+        transition-delay: 1.5s
 
     .step-details
       text-align: center
