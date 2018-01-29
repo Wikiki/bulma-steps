@@ -41,7 +41,6 @@
   background: linear-gradient(to left, #dbdbdb 50%, #00d1b2 50%);
   background-size: 200% 100%;
   background-position: right bottom;
-  transition: all 2s ease;
 }
 
 .steps .step-item::before .step-marker {
@@ -77,8 +76,6 @@
   color: white;
   border: 0.2em solid #fff;
   z-index: 1;
-  transition: all 0s ease;
-  transition-delay: 1.5s;
 }
 
 .steps .step-item .step-details {
@@ -362,6 +359,15 @@
   margin: .5rem;
   justify-content: center;
   align-items: center;
+}
+
+.steps.is-animated .step-item::before {
+  transition: all 2s ease;
+}
+
+.steps.is-animated .step-item .step-marker {
+  transition: all 0s ease;
+  transition-delay: 1.5s;
 }
 
 .steps .step-item:not(:first-child)::before {
