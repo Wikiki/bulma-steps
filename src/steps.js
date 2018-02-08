@@ -1,6 +1,6 @@
 const MOUSE_EVENTS = ['click', 'touchstart'];
 
-class StepsWizard {
+export class class StepsWizard {
   constructor(element = null, options = {}) {
     this.options = Object.assign({}, {
       'selector': '.step-item',
