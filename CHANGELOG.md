@@ -1,3 +1,8 @@
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/Wikiki/bulma-steps/compare/0.2.2...0.2.3) (2018-02-09)
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/Wikiki/bulma-steps/compare/v0.1.2...v0.2.2) (2018-02-09)
 
