@@ -1,6 +1,6 @@
 {
   "name": "bulma-steps",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Display steps for a process (like sign-up, or order, form), in different colors, sizes, and states ",
   "main": "steps.sass",
   "scripts": {
