@@ -1,3 +1,25 @@
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/Wikiki/bulma-steps/compare/0.2.2...0.2.3) (2018-02-09)
+
+
+
+<a name="0.2.2"></a>
+## [0.2.2](https://github.com/Wikiki/bulma-steps/compare/v0.1.2...v0.2.2) (2018-02-09)
+
+
+### Bug Fixes
+
+* **bower:** Add missing version ([586b33a](https://github.com/Wikiki/bulma-steps/commit/586b33a))
+* **js:** export default ([3aaf873](https://github.com/Wikiki/bulma-steps/commit/3aaf873))
+
+
+### Features
+
+* **gulp:** Add gulp dependencies ([d03cff4](https://github.com/Wikiki/bulma-steps/commit/d03cff4))
+* **gulp:** Add release task ([e607ccf](https://github.com/Wikiki/bulma-steps/commit/e607ccf))
+
+
+
 # Change Log
 
 ## [v0.1.2](https://github.com/wikiki/bulma-steps/tree/v0.1.2) (2017-11-30)
