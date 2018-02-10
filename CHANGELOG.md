@@ -1,3 +1,15 @@
+<a name="0.2.4"></a>
+## [0.2.4](https://github.com/Wikiki/bulma-steps/compare/0.2.3...0.2.4) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Correct dist filenames ([ba64233](https://github.com/Wikiki/bulma-steps/commit/ba64233))
+* **package:** File paths ([2dbc50c](https://github.com/Wikiki/bulma-steps/commit/2dbc50c))
+* **travis:** Remove configuration ([9eb8803](https://github.com/Wikiki/bulma-steps/commit/9eb8803))
+
+
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://github.com/Wikiki/bulma-steps/compare/0.2.2...0.2.3) (2018-02-09)
 
