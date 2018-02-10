@@ -1,3 +1,13 @@
+<a name="0.2.5"></a>
+## [0.2.5](https://github.com/Wikiki/bulma-steps/compare/0.2.4...0.2.5) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Use UMD modules style ([a9ef0b6](https://github.com/Wikiki/bulma-steps/commit/a9ef0b6))
+
+
+
 <a name="0.2.4"></a>
 ## [0.2.4](https://github.com/Wikiki/bulma-steps/compare/0.2.3...0.2.4) (2018-02-10)
 
