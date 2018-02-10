@@ -2,7 +2,7 @@
   "name": "bulma-steps",
   "description": "Display steps for a process (like sign-up, or order, form), in different colors, sizes, and states",
   "main": "steps.sass",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "authors": [
     "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)"
   ],
