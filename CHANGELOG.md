@@ -1,3 +1,13 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/Wikiki/bulma-steps/compare/1.0.0...1.0.1) (2018-02-11)
+
+
+### Bug Fixes
+
+* **gulp:** Remove Bulma’s important from dist’sass ([f71078c](https://github.com/Wikiki/bulma-steps/commit/f71078c))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/Wikiki/bulma-steps/compare/0.2.6...1.0.0) (2018-02-10)
 
