@@ -1,6 +1,9 @@
+var bulmaSteps = (function () {
+'use strict';
+
 const MOUSE_EVENTS = ['click', 'touchstart'];
 
-export default class StepsWizard {
+class StepsWizard {
   constructor(element = null, options = {}) {
     this.options = Object.assign({}, {
       'selector': '.step-item',
@@ -203,3 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var stepsWizard = new StepsWizard(stepsContainer);
   });
 });
+
+return StepsWizard;
+
+}());
