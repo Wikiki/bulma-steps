@@ -1,3 +1,40 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Wikiki/bulma-steps/compare/0.2.6...1.0.0) (2018-02-10)
+
+
+### Features
+
+* **rollup:** Add Rollup transpilation ([231ef93](https://github.com/Wikiki/bulma-steps/commit/231ef93))
+
+
+
+<a name="0.2.6"></a>
+## [0.2.6](https://github.com/Wikiki/bulma-steps/compare/0.2.5...0.2.6) (2018-02-10)
+
+
+
+<a name="0.2.5"></a>
+## [0.2.5](https://github.com/Wikiki/bulma-steps/compare/0.2.4...0.2.5) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Use UMD modules style ([a9ef0b6](https://github.com/Wikiki/bulma-steps/commit/a9ef0b6))
+
+
+
+<a name="0.2.4"></a>
+## [0.2.4](https://github.com/Wikiki/bulma-steps/compare/0.2.3...0.2.4) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Correct dist filenames ([ba64233](https://github.com/Wikiki/bulma-steps/commit/ba64233))
+* **package:** File paths ([2dbc50c](https://github.com/Wikiki/bulma-steps/commit/2dbc50c))
+* **travis:** Remove configuration ([9eb8803](https://github.com/Wikiki/bulma-steps/commit/9eb8803))
+
+
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://github.com/Wikiki/bulma-steps/compare/0.2.2...0.2.3) (2018-02-09)
 
