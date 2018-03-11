@@ -4,6 +4,7 @@
   "description": "Display steps for a process (like sign-up, or order, form), in different colors, sizes, and states ",
   "main": "dist/bulma-steps.sass",
   "scripts": {
+    "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,9 +25,6 @@
     "url": "https://github.com/Wikiki/bulma-steps/issues"
   },
   "homepage": "https://github.com/Wikiki/bulma-steps#readme",
-  "scripts": {
-    "build": "gulp"
-  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
