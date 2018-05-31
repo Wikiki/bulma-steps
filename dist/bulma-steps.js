@@ -27,6 +27,23 @@ class StepsWizard {
     this.init();
   }
 
+  /**
+   * Initiate all DOM element containing tagsinput class
+   * @method
+   * @return {Array} Array of all TagsInput instances
+   */
+  static attach(selector = '.steps', options = {}) {
+    let stepsInstances = new Array();
+
+    const steps = document.querySelectorAll(selector);
+    [].forEach.call(steps, step => {
+      setTimeout(() => {
+        stepsInstances.push(new StepsWizard(step, options));
+      }, 100);
+    });
+    return stepsInstances;
+  }
+
   init() {
     for (var i = 0; i < this.steps.length; i++) {
       var step = this.steps[i];
@@ -199,13 +216,6 @@ class StepsWizard {
     }
   }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  var stepsContainers = document.querySelectorAll('.steps');
-  [].forEach.call(stepsContainers, (stepsContainer) => {
-    var stepsWizard = new StepsWizard(stepsContainer);
-  });
-});
 
 return StepsWizard;
 
