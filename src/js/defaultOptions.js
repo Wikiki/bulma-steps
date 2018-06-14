@@ -5,6 +5,7 @@ const defaultOptions = {
     'next_selector': '[data-nav="next"]',
     'active_class': 'is-active',
     'completed_class': 'is-completed',
+    'stepClickable': false,
     'beforeNext': null,
     'onShow': null,
     'onFinish': null,

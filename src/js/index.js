@@ -90,6 +90,19 @@ export default class bulmaSteps extends EventEmitter {
         this.next_btn.addEventListener(event, this[onStepsNext], false);
       });
     }
+
+    if (this.options.stepClickable) {
+      [].forEach.call(this.steps, (step, index) => {
+        this._clickEvents.forEach(event => {
+          while(index > this.current_id) {
+            this[onStepsNext](event);
+          }
+          while(index < this.current_id) {
+            this[onStepsPrevious](event);
+          }
+        });
+      })
+    }
   }
 
   [onStepsPrevious](e) {
