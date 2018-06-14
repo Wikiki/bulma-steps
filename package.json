@@ -1,6 +1,6 @@
 {
   "name": "bulma-steps",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Display steps for a process (like sign-up, or order, form), in different colors, sizes, and states ",
   "main": "./dist/js/bulma-steps.min.js",
   "style": "./dist/css/bulma-steps.min.css",
@@ -66,10 +66,8 @@
     }
   },
   "files": [
-    "dist/bulma-steps.sass",
-    "dist/bulma-steps.min.css",
-    "dist/bulma-steps.js",
-    "dist/bulma-steps.min.js",
+    "dist/**",
+    "src/**",
     "LICENSE",
     "README.md"
   ]
