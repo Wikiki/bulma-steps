@@ -1,87 +1,111 @@
-const MOUSE_EVENTS = ['click', 'touchstart'];
+import EventEmitter from './events';
+import defaultOptions from './defaultOptions';
 
-export default class StepsWizard {
-  constructor(element = null, options = {}) {
-    this.options = Object.assign({}, {
-      'selector': '.step-item',
-      'selector_content': '.step-content',
-      'previous_selector': '[data-nav="previous"]',
-      'next_selector': '[data-nav="next"]',
-      'active_class': 'is-active',
-      'completed_class': 'is-completed',
-      'beforeNext': null,
-      'onShow': null,
-      'onFinish': null,
-      'onError': null
-    }, options);
+const onStepsPrevious = Symbol('onStepsPrevious');
+const onStepsNext = Symbol('onStepsNext');
 
-    this.element = element;
-    this.steps = element.querySelectorAll(this.options.selector);
-    this.contents = element.querySelectorAll(this.options.selector_content);
-    this.previous_btn = element.querySelector(this.options.previous_selector);
-    this.next_btn = element.querySelector(this.options.next_selector);
+export default class bulmaSteps extends EventEmitter {
+  constructor(selector, options = {}) {
+    super();
+
+    this.element = typeof selector === 'string'
+      ? document.querySelector(selector)
+      : selector;
+    // An invalid selector or non-DOM node has been provided.
+    if (!this.element) {
+      throw new Error('An invalid selector or non-DOM node has been provided.');
+    }
+
+    this._clickEvents = ['click'];
+    /// Set default options and merge with instance defined
+    this.options = {
+      ...defaultOptions,
+      ...options
+    };
+
+    this[onStepsPrevious] = this[onStepsPrevious].bind(this);
+    this[onStepsNext] = this[onStepsNext].bind(this);
 
     this.init();
   }
 
   /**
-   * Initiate all DOM element containing tagsinput class
+   * Initiate all DOM element containing carousel class
    * @method
-   * @return {Array} Array of all TagsInput instances
+   * @return {Array} Array of all Carousel instances
    */
   static attach(selector = '.steps', options = {}) {
-    let stepsInstances = new Array();
+    let instances = new Array();
 
-    const steps = document.querySelectorAll(selector);
-    [].forEach.call(steps, step => {
+    const elements = document.querySelectorAll(selector);
+    [].forEach.call(elements, element => {
       setTimeout(() => {
-        stepsInstances.push(new StepsWizard(step, options));
+        instances.push(new bulmaSteps(element, options));
       }, 100);
     });
-    return stepsInstances;
+    return instances;
   }
 
+  /**
+   * Initiate plugin
+   * @method init
+   * @return {void}
+   */
   init() {
-    for (var i = 0; i < this.steps.length; i++) {
-      var step = this.steps[i];
+    this._id = 'bulmaSteps' + (new Date()).getTime() + Math.floor(Math.random() * Math.floor(9999));
+    
+    this.steps = element.querySelectorAll(this.options.selector);
+    this.contents = element.querySelectorAll(this.options.selector_content);
+    this.previous_btn = element.querySelector(this.options.previous_selector);
+    this.next_btn = element.querySelector(this.options.next_selector);
 
-      step.setAttribute('data-step-id', i);
+    [].forEach.call(this.steps, (step, index) => {
+      step.setAttribute('data-step-id', index);
+    });
+
+    if (this.steps && this.steps.length) {
+      this.activate_step(0);
+      this.updateActions(this.steps[0]);
     }
 
-    this.bind();
+    this._bindEvents();
 
-    this.start();
+    this.emit('bulmasteps:ready', this.element.value);
   }
-
-  bind() {
-    var _this = this;
-
+  
+  /**
+   * Bind all events
+   * @method _bindEvents
+   * @return {void}
+   */
+  _bindEvents() {
     if (this.previous_btn != null) {
-      MOUSE_EVENTS.forEach((event) => {
-        this.previous_btn.addEventListener(event, function(e) {
-          e.preventDefault();
-          if (!e.target.getAttribute('disabled')) {
-            _this.previous_step();
-          }
-        });
+      this._clickEvents.forEach(event => {
+        this.previous_btn.addEventListener(event, this[onStepsPrevious], false);
       });
     }
-
+    
     if (this.next_btn != null) {
-      MOUSE_EVENTS.forEach((event) => {
-        this.next_btn.addEventListener(event, function(e) {
-          e.preventDefault();
-          if (!e.target.getAttribute('disabled')) {
-            _this.next_step();
-          }
-        });
+      this._clickEvents.forEach(event => {
+        this.next_btn.addEventListener(event, this[onStepsNext], false);
       });
     }
   }
 
-  start() {
-    this.activate_step(0);
-    this.updateActions(this.steps[0]);
+  [onStepsPrevious](e) {
+    e.preventDefault();
+    
+    if (!e.target.getAttribute('disabled')) {
+      this.previous_step();
+    }
+  }
+
+  [onStepsNext](e) {
+    e.preventDefault();
+    
+    if (!e.target.getAttribute('disabled')) {
+      this.next_step();
+    }
   }
 
   get_current_step_id() {
@@ -135,12 +159,14 @@ export default class StepsWizard {
     if (typeof this.options.beforeNext != 'undefined' && this.options.beforeNext != null && this.options.beforeNext) {
       errors = this.options.beforeNext(current_id);
     }
+    this.emit('bulmasteps:before:next', current_id);
 
     if (typeof errors == 'undefined') {
       errors = [];
     }
 
     if (errors.length > 0) {
+      this.emit('bulmasteps:errors', errors);
       for (var i = 0; i < errors.length; i++) {
         if (typeof this.options.onError != 'undefined' && this.options.onError != null && this.options.onError) {
           this.options.onError(errors[i]);
@@ -154,6 +180,7 @@ export default class StepsWizard {
       if (typeof this.options.onFinish != 'undefined' && this.options.onFinish != null && this.options.onFinish) {
         this.options.onFinish(current_id);
       }
+      this.emit('bulmasteps:finish', current_id);
       this.deactivate_step(current_id);
     } else {
       this.complete_step(current_id);
@@ -196,14 +223,18 @@ export default class StepsWizard {
     if (typeof this.options.onShow != 'undefined' && this.options.onShow != null && this.options.onShow) {
       this.options.onShow(step_id);
     }
+
+    this.emit('bulmasteps:step:show', step_id);
   }
 
   complete_step(step_id) {
     this.steps[step_id].classList.add(this.options.completed_class);
+    this.emit('bulmasteps:step:completed', step_id);
   }
 
   uncomplete_step(step_id) {
     this.steps[step_id].classList.remove(this.options.completed_class);
+    this.emit('bulmasteps:step:uncompleted', step_id);
   }
 
   deactivate_step(step_id) {
