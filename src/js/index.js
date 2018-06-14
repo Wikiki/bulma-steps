@@ -54,10 +54,10 @@ export default class bulmaSteps extends EventEmitter {
   init() {
     this._id = 'bulmaSteps' + (new Date()).getTime() + Math.floor(Math.random() * Math.floor(9999));
     
-    this.steps = element.querySelectorAll(this.options.selector);
-    this.contents = element.querySelectorAll(this.options.selector_content);
-    this.previous_btn = element.querySelector(this.options.previous_selector);
-    this.next_btn = element.querySelector(this.options.next_selector);
+    this.steps = this.element.querySelectorAll(this.options.selector);
+    this.contents = this.element.querySelectorAll(this.options.selector_content);
+    this.previous_btn = this.element.querySelector(this.options.previous_selector);
+    this.next_btn = this.element.querySelector(this.options.next_selector);
 
     [].forEach.call(this.steps, (step, index) => {
       step.setAttribute('data-step-id', index);
