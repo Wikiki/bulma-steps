@@ -195,7 +195,7 @@ var bulmaSteps = function (_EventEmitter) {
       }
     }
   }, {
-    key: onStepsNExt,
+    key: onStepsNext,
     value: function value(e) {
       e.preventDefault();
 
