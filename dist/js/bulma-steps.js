@@ -294,8 +294,10 @@ var bulmaSteps = function (_EventEmitter) {
         }
         this.emit('bulmasteps:finish', current_id);
       }
-      this.complete_step(current_id);
-      this.activate_step(next_id);
+      if (next_id < this.steps.length) {
+        this.complete_step(current_id);
+        this.activate_step(next_id);
+      }
     }
   }, {
     key: 'previous_step',
