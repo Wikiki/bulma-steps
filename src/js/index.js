@@ -189,16 +189,14 @@ export default class bulmaSteps extends EventEmitter {
       return;
     }
 
-    if (next_id >= this.steps.length) {
+    if (next_id >= this.steps.length - 1) {
       if (typeof this.options.onFinish != 'undefined' && this.options.onFinish != null && this.options.onFinish) {
         this.options.onFinish(current_id);
       }
       this.emit('bulmasteps:finish', current_id);
-      this.deactivate_step(current_id);
-    } else {
-      this.complete_step(current_id);
-      this.activate_step(next_id);
     }
+    this.complete_step(current_id);
+    this.activate_step(next_id);
   }
 
   previous_step() {
