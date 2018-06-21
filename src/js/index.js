@@ -53,7 +53,7 @@ export default class bulmaSteps extends EventEmitter {
    */
   init() {
     this._id = 'bulmaSteps' + (new Date()).getTime() + Math.floor(Math.random() * Math.floor(9999));
-    
+
     this.steps = this.element.querySelectorAll(this.options.selector);
     this.contents = this.element.querySelectorAll(this.options.selector_content);
     this.previous_btn = this.element.querySelector(this.options.previous_selector);
@@ -72,7 +72,7 @@ export default class bulmaSteps extends EventEmitter {
 
     this.emit('bulmasteps:ready', this.element.value);
   }
-  
+
   /**
    * Bind all events
    * @method _bindEvents
@@ -84,7 +84,7 @@ export default class bulmaSteps extends EventEmitter {
         this.previous_btn.addEventListener(event, this[onStepsPrevious], false);
       });
     }
-    
+
     if (this.next_btn != null) {
       this._clickEvents.forEach(event => {
         this.next_btn.addEventListener(event, this[onStepsNext], false);
@@ -107,7 +107,7 @@ export default class bulmaSteps extends EventEmitter {
 
   [onStepsPrevious](e) {
     e.preventDefault();
-    
+
     if (!e.target.getAttribute('disabled')) {
       this.previous_step();
     }
@@ -115,7 +115,7 @@ export default class bulmaSteps extends EventEmitter {
 
   [onStepsNext](e) {
     e.preventDefault();
-    
+
     if (!e.target.getAttribute('disabled')) {
       this.next_step();
     }
@@ -189,13 +189,13 @@ export default class bulmaSteps extends EventEmitter {
       return;
     }
 
-    if (next_id >= this.steps.length) {
+    if (next_id >= this.steps.length - 1) {
       if (typeof this.options.onFinish != 'undefined' && this.options.onFinish != null && this.options.onFinish) {
         this.options.onFinish(current_id);
       }
       this.emit('bulmasteps:finish', current_id);
-      this.deactivate_step(current_id);
-    } else {
+    }
+    if (next_id < this.steps.length) {
       this.complete_step(current_id);
       this.activate_step(next_id);
     }
