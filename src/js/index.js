@@ -159,7 +159,7 @@ export default class bulmaSteps extends EventEmitter {
     }
   }
 
-  next_step() {
+  async next_step() {
     var current_id = this.get_current_step_id();
 
     if (current_id == null) {
@@ -170,7 +170,7 @@ export default class bulmaSteps extends EventEmitter {
       errors = [];
 
     if (typeof this.options.beforeNext != 'undefined' && this.options.beforeNext != null && this.options.beforeNext) {
-      errors = this.options.beforeNext(current_id);
+      errors = await this.options.beforeNext(current_id);
     }
     this.emit('bulmasteps:before:next', current_id);
 
