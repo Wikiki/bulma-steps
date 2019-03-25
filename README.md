@@ -12,7 +12,9 @@ Preview
 
 Documentation & Demo
 ---
-You can find the Documentation and a demo [here](https://wikiki.github.io/components/steps/)
+You can find the Documentation and a demo [here](https://wikiki.github.io/components/steps/).
+
+Don't forget to add this script to run the **bulma steps** : `<script> bulmaSteps.attach(); </script>`.
 
 ## Related Project
 
