@@ -9,7 +9,8 @@ const defaultOptions = {
     'beforeNext': null,
     'onShow': null,
     'onFinish': null,
-    'onError': null
+    'onError': null,
+    'step_idx': 0,
 };
 
 export default defaultOptions;
