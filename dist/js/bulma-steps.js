@@ -259,29 +259,35 @@ var bulmaSteps = function (_EventEmitter) {
   }, {
     key: 'next_step',
     value: function next_step() {
-      var current_id = this.get_current_step_id();
+	  var current_id = this.get_current_step_id();
 
       if (current_id == null) {
         return;
       }
-
-      var next_id = current_id + 1,
-          errors = [];
-
+      var beforeNextResult = null;
       if (typeof this.options.beforeNext != 'undefined' && this.options.beforeNext != null && this.options.beforeNext) {
-        errors = this.options.beforeNext(current_id);
+        beforeNextResult = this.options.beforeNext(current_id);
       }
       this.emit('bulmasteps:before:next', current_id);
 
-      if (typeof errors == 'undefined') {
-        errors = [];
+      if(typeof beforeNextResult == 'undefined')
+      {
+        beforeNextResult = {}
+      }
+      if (typeof beforeNextResult.errors == 'undefined') {
+        beforeNextResult.errors = [];
+      }
+      if(typeof beforeNextResult.skipCount == 'undefined'){
+        beforeNextResult.skipCount = 0;
       }
 
-      if (errors.length > 0) {
-        this.emit('bulmasteps:errors', errors);
-        for (var i = 0; i < errors.length; i++) {
+      var next_id = current_id + 1 + beforeNextResult.skipCount;      
+
+      if (beforeNextResult.errors.length > 0) {
+        this.emit('bulmasteps:errors', beforeNextResult.errors);
+        for (var i = 0; i < beforeNextResult.errors.length; i++) {
           if (typeof this.options.onError != 'undefined' && this.options.onError != null && this.options.onError) {
-            this.options.onError(errors[i]);
+            this.options.onError(beforeNextResult.errors[i]);
           }
         }
 
@@ -301,14 +307,22 @@ var bulmaSteps = function (_EventEmitter) {
     }
   }, {
     key: 'previous_step',
-    value: function previous_step() {
-      var current_id = this.get_current_step_id();
+    value: function previous_step() {	  
+	  var current_id = this.get_current_step_id();
       if (current_id == null) {
         return;
       }
-
-      this.uncomplete_step(current_id - 1);
-      this.activate_step(current_id - 1);
+      var skipCount = 0;
+	    if (typeof this.options.beforePrevious != 'undefined' && this.options.beforePrevious != null && this.options.beforePrevious) {
+        skipCount = this.options.beforePrevious(current_id);
+      }
+      if(typeof skipCount == 'undefined')
+      {
+        skipCount = 0;
+      }
+      this.emit('bulmasteps:before:previous', current_id);
+      this.uncomplete_step(current_id - 1 - skipCount);
+      this.activate_step(current_id - 1 - skipCount);
     }
 
     /**
