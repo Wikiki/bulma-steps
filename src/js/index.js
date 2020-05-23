@@ -160,55 +160,69 @@ export default class bulmaSteps extends EventEmitter {
   }
 
   async next_step() {
-    var current_id = this.get_current_step_id();
+	  var current_id = this.get_current_step_id();
 
-    if (current_id == null) {
-      return;
-    }
+      if (current_id == null) {
+        return;
+      }
+      var beforeNextResult = null;
+      if (typeof this.options.beforeNext != 'undefined' && this.options.beforeNext != null && this.options.beforeNext) {
+        beforeNextResult = this.options.beforeNext(current_id);
+      }
+      this.emit('bulmasteps:before:next', current_id);
 
-    var next_id = current_id + 1,
-      errors = [];
+      if(typeof beforeNextResult == 'undefined')
+      {
+        beforeNextResult = {}
+      }
+      if (typeof beforeNextResult.errors == 'undefined') {
+        beforeNextResult.errors = [];
+      }
+      if(typeof beforeNextResult.skipCount == 'undefined'){
+        beforeNextResult.skipCount = 0;
+      }
 
-    if (typeof this.options.beforeNext != 'undefined' && this.options.beforeNext != null && this.options.beforeNext) {
-      errors = await this.options.beforeNext(current_id);
-    }
-    this.emit('bulmasteps:before:next', current_id);
+      var next_id = current_id + 1 + beforeNextResult.skipCount;      
 
-    if (typeof errors == 'undefined') {
-      errors = [];
-    }
-
-    if (errors.length > 0) {
-      this.emit('bulmasteps:errors', errors);
-      for (var i = 0; i < errors.length; i++) {
-        if (typeof this.options.onError != 'undefined' && this.options.onError != null && this.options.onError) {
-          this.options.onError(errors[i]);
+      if (beforeNextResult.errors.length > 0) {
+        this.emit('bulmasteps:errors', beforeNextResult.errors);
+        for (var i = 0; i < beforeNextResult.errors.length; i++) {
+          if (typeof this.options.onError != 'undefined' && this.options.onError != null && this.options.onError) {
+            this.options.onError(beforeNextResult.errors[i]);
+          }
         }
+
+        return;
       }
 
-      return;
-    }
-
-    if (next_id >= this.steps.length - 1) {
-      if (typeof this.options.onFinish != 'undefined' && this.options.onFinish != null && this.options.onFinish) {
-        this.options.onFinish(current_id);
+      if (next_id >= this.steps.length - 1) {
+        if (typeof this.options.onFinish != 'undefined' && this.options.onFinish != null && this.options.onFinish) {
+          this.options.onFinish(current_id);
+        }
+        this.emit('bulmasteps:finish', current_id);
       }
-      this.emit('bulmasteps:finish', current_id);
-    }
-    if (next_id < this.steps.length) {
-      this.complete_step(current_id);
-      this.activate_step(next_id);
-    }
+      if (next_id < this.steps.length) {
+        this.complete_step(current_id);
+        this.activate_step(next_id);
+      }
   }
 
-  previous_step() {
-    var current_id = this.get_current_step_id();
-    if (current_id == null) {
-      return;
-    }
-
-    this.uncomplete_step(current_id - 1);
-    this.activate_step(current_id - 1);
+  previous_step() {	
+	var current_id = this.get_current_step_id();
+      if (current_id == null) {
+        return;
+      }
+      var skipCount = 0;
+	    if (typeof this.options.beforePrevious != 'undefined' && this.options.beforePrevious != null && this.options.beforePrevious) {
+        skipCount = this.options.beforePrevious(current_id);
+      }
+      if(typeof skipCount == 'undefined')
+      {
+        skipCount = 0;
+      }
+      this.emit('bulmasteps:before:previous', current_id);
+      this.uncomplete_step(current_id - 1 - skipCount);
+      this.activate_step(current_id - 1 - skipCount);
   }
 
   /**
