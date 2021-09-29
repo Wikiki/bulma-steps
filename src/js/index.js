@@ -63,9 +63,16 @@ export default class bulmaSteps extends EventEmitter {
       step.setAttribute('data-step-id', index);
     });
 
+    if (this.options.step_idx < 0 || this.options.step_idx > this.steps.length) {
+      this.options.step_idx = 0
+    }
+
     if (this.steps && this.steps.length) {
-      this.activate_step(0);
-      this.updateActions(this.steps[0]);
+      for (var i = 0; i < this.options.step_idx ; i++) {
+        this.complete_step(i);
+      }
+      this.activate_step(this.options.step_idx);
+      this.updateActions(this.steps[this.options.step_idx]);
     }
 
     this._bindEvents();
