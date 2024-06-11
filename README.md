@@ -1,3 +1,10 @@
+# :exclamation: Abandoned :exclamation:
+As you may have noticed, this package has not been updated for some time. I'm sorry, but unfortunately I'm not able to continue to maintain it, so I recommand the use of one available alternative:
+- [Bulma Steps by aramvisser](https://github.com/aramvisser/bulma-steps).
+- [Bulma O Step by octoshrimpy])(https://octoshrimpy.github.io/bulma-o-steps/)
+
+If you're intersted in taking it over and maintain it, please contact me at wikiki@protonmail.com to discuss how to proceed.
+
 # bulma-steps
 Bulma's extension to manage steps
 (find all my bulma's extensions [here](https://wikiki.github.io/))
@@ -9,13 +16,6 @@ Bulma's extension to manage steps
 Preview
 ---
 <img src="./bulma-steps-example.png">
-
-# :exclamation: Abandoned :exclamation:
-As you may have noticed, this package has not been updated for some time. I'm sorry, but unfortunately I'm not able to continue to maintain it, so I recommand the use of one available alternative:
-- [Bulma Steps by aramvisser](https://github.com/aramvisser/bulma-steps).
-- [Bulma O Step by octoshrimpy])(https://octoshrimpy.github.io/bulma-o-steps/)
-
-If you're intersted in taking it over and maintain it, please contact me at wikiki@protonmail.com to discuss how to proceed.
 
 Documentation & Demo
 ---
